@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazeeza Kitchen - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero">
+    <nav>
+      <a href="home.htm">
+      <img src="images/lazeezalogo.png" class="logo">
+    </a>
+      <ul>
+        <li><a href="Support.htm">Support</a></li>
+        <li><a href="shop.htm">Shop</a></li>
+      </ul>
+      <button type="button"><span></span></button>
+    </nav>
+    <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood2.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood3.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood4.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood5.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood6.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood7.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood8.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood9.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood10.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood11.png">
+      <div class="square"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img class="slideshow-food" src="images/LazeezaFood12.png">
+      <div class="square"></div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap"
+          rel="stylesheet">
+          <h1 class="raleway-font"><em>Welcome to<br>Lazeeza Kitchen</em></h1>
+          <br>
+          <p class="raleway-font">Contact us on Facebook / Messenger / DMs <br> Phone: XXX-XXX-XXXX <br> Address: ### Place Road, Canada</p>
+</body>
+</html>
