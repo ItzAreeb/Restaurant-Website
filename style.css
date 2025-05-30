@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #2c3e50;
 }
 
 /* Navbar */
@@ -56,7 +57,6 @@ header {
   gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
-  height: 90vh;
 }
 
 /* Slideshow section */
@@ -139,6 +139,50 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.shop-section {
+  display: flex;
+  flex-wrap: wrap;           /* allow multiple rows */
+  justify-content: center;   /* center items horizontally */
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  min-height: 90vh;
+  gap: 20px; /* optional: space between items */
+}
+
+.shop-container {
+  width: 40vh;
+  height: 40vh;
+  background-color: #2c3e50;
+  border-radius: 8%;
+  overflow: hidden;
+}
+
+.shop-container:hover {
+  background-color: #e74c3c;
+  cursor: pointer;
+}
+
+.shop-container img {
+  width: 40vh;
+  height: 30vh;
+  border-top-left-radius: 8%;
+  border-top-right-radius: 8%;
+}
+
+.shop-container h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ecf0f1;
+}
+
+.shop-container h3 {
+  text-align: center;
+  color: #ecf0f1;
+}
+
 @media (max-aspect-ratio: 9/16), (max-width: 768px) {
   .slideshow-overlay {
     position: absolute;
@@ -160,7 +204,7 @@ header {
     box-sizing: border-box;
     height: auto;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #2c3e50;
     color: #fff;
     padding: 60px;
     font-size: 1.2rem;
@@ -184,3 +228,26 @@ header {
   }
 }
 
+/* Popup message */
+#popup-message {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#popup-message.show {
+  opacity: 1;
+  pointer-events: auto;
+}
