@@ -37,6 +37,7 @@ header {
   display: flex;
   gap: 25px;
   padding: 15px 30px;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -44,8 +45,7 @@ header {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.3s ease;
-}
+  transition: color 0.3s ease;}
 
 .nav-links a:hover {
   color: #e74c3c;
@@ -250,4 +250,69 @@ header {
 #popup-message.show {
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Cart Button */
+#cart-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Cart Sidebar */
+#cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #2c3e50;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  padding: 20px;
+  color: white;
+}
+
+#cart-sidebar.show {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#close-cart {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #34495e;
+}
+
+.cart-footer {
+  position: absolute;
+  bottom: 20px;
+  width: calc(100% - 40px);
+}
+
+#checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }
