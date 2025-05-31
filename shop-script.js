@@ -31,21 +31,63 @@ function addToCart(itemName, itemPrice) {
 
 // Update cart UI
 function updateCart() {
+    // Update cart count
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
+
+    // Update cart items list
     cartItemsContainer.innerHTML = '';
 
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
         itemElement.innerHTML = `
-      <span>${item.name} (${item.quantity})</span>
-      <span>$${(item.price * item.quantity).toFixed(2)}</span>
+      <div>
+        <span>${item.name}</span>
+        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+      </div>
+      <div class="cart-item-controls">
+        <button class="decrement-btn" data-index="${index}">-</button>
+        <span>${item.quantity}</span>
+        <button class="increment-btn" data-index="${index}">+</button>
+        <button class="delete-btn" data-index="${index}">Delete</button>
+      </div>
     `;
         cartItemsContainer.appendChild(itemElement);
     });
+
+    // Update total
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(2);
+
+    // Add event listeners to the new buttons
+    document.querySelectorAll('.increment-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index');
+            cart[index].quantity++;
+            updateCart();
+        });
+    });
+
+    document.querySelectorAll('.decrement-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index');
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                cart.splice(index, 1); // Remove if quantity would go to 0
+            }
+            updateCart();
+        });
+    });
+
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index');
+            cart.splice(index, 1);
+            updateCart();
+        });
+    });
 }
 
 function showPopup() {

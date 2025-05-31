@@ -300,6 +300,36 @@ header {
   border-bottom: 1px solid #34495e;
 }
 
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-controls button {
+  background: #34495e;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cart-item-controls button.delete-btn {
+  background: #e74c3c;
+  width: auto;
+  padding: 0 8px;
+}
+
+.cart-item-controls button:hover {
+  opacity: 0.9;
+}
+
 .cart-footer {
   position: absolute;
   bottom: 20px;
