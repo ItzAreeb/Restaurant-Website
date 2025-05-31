@@ -1,4 +1,4 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartButton = document.getElementById('cart-button');
 const cartSidebar = document.getElementById('cart-sidebar');
@@ -15,6 +15,10 @@ closeCart.addEventListener('click', () => {
     cartSidebar.classList.remove('show');
 });
 
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 function addToCart(itemName, itemPrice) {
     const existingItem = cart.find(item => item.name === itemName);
     if (existingItem) existingItem.quantity += 1;
@@ -25,6 +29,7 @@ function addToCart(itemName, itemPrice) {
             quantity: 1
         });
     }
+    saveCart();
     updateCart();
     showPopup();
 }
@@ -65,6 +70,7 @@ function updateCart() {
         btn.addEventListener('click', (e) => {
             const index = e.target.getAttribute('data-index');
             cart[index].quantity++;
+            saveCart();
             updateCart();
         });
     });
@@ -77,6 +83,7 @@ function updateCart() {
             } else {
                 cart.splice(index, 1); // Remove if quantity would go to 0
             }
+            saveCart();
             updateCart();
         });
     });
@@ -85,6 +92,7 @@ function updateCart() {
         btn.addEventListener('click', (e) => {
             const index = e.target.getAttribute('data-index');
             cart.splice(index, 1);
+            saveCart();
             updateCart();
         });
     });
@@ -98,6 +106,7 @@ function showPopup() {
     }
 }
 
+saveCart();
 updateCart();
 
 document.addEventListener("DOMContentLoaded", () => {
